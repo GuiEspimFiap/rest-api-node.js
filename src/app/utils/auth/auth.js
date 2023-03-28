@@ -1,10 +1,10 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-import { users } from "../../../db/db";
+import { users } from "../../../db/db.js";
 
 const secret = process.env.SECRET_KEY
 
-export function generateToken(playload) {
+function generateToken(playload) {
     return jwt.sign(playload, secret, {
         expiresIn: '30d'
     })
